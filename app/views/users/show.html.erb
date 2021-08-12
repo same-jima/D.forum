@@ -1,19 +1,19 @@
 <section class="wrapper">
     <div class="container">
         <div class="content">
-            <h2 class="heading">ABOUT US</h2>
+            <h2 class="heading">MY PAGE</h2>
             <div class="list">
                 <div class="list-item">
-                    <img src="assets/avocade.jpg" class="image">
+                    <%= image_tag 'タコ.png', class: 'image' %>
                     <div class="text">投稿管理</div>
                 </div>
                 <div class="list-item">
-                    <img src="img/sample-3-1.jpg" class="image">
+                    <%= image_tag 'image2.png', class: 'image' %>
                     <div class="text">登録変更</div>
                 </div>    
                 <div class="list-item">
-                    <img src="img/sample-3-3.jpg" class="image">
-                    <div class="text">ガチャ</div>
+                    <%= image_tag 'スナメリ.png', class: 'image' %>
+                    <%= button_to "ガチャ", "" %>
                 </div>
             </div>
         </div>
