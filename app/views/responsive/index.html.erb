@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <header>
+      <div id="A">
+        <h1 class="headline">
+        <a>D.FORUM</a>
+        </h1>
+            <ul class="nav-list">
+               <li class ="nav-list-item">
+                  <form class="search-form" action="#">
+                    <input class='input-box' placeholder='キーワードから探す'>
+                    <button class="search-button">
+                    <%= image_tag "icon.png", class:"search-icon" %>
+                    </button>
+                  </form>
+                </li>
+               <% if user_signed_in? %>
+                <li class ="nav-list-item">
+                  <%= link_to  "ログアウト", destroy_user_session_path, method: :delete, class: 'logout' %>
+                </li>
+                <li class ="nav-list-item">
+                 <%= link_to "マイページ", "/users/#{current_user.id}" %>
+                </li>
+               <% else %>
+                <li class ="nav-list-item"><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+                <li class ="nav-list-item"><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+               <% end %>
+            </ul>
+      </div>
+    </header>
+    <!-- /.header -->
+    <div id="B">
+      <ul class="taglist">
+        <li class="tagmain"><a href="new_item_path">メニュー</a></li>
+        <li class="tagsub">
+        <%= link_to new_item_path do %>
+        <p> 投稿 </p>
+        <% end %>
+        </li>
+        <li class="tagsub"><a href="">チャット</a></li>
+        <li class="taglast"><a href="">メール</a></li>
+      </ul>
+    </div>
+    <div id="C">
+      <div class="slider">
+          <div><a href="#"><img src="assets/コスモス_1280.jpg"></a></div>
+          <div><a href="#"><img src="assets/渦_1280.jpg"></a></div>
+      </div>
+    </div>
+    <div id="d">
+    
+        <ul class='catrgory-title'>
+          <li class="category-bar"></li>
+          <li class="category-ber"><a href="">ランキング</a></li>
+          <div class='item-contents'>
+             <ul class='item-lists'>
+              <li class='list'></li>
+              <div><img src="assets/サンプル.png" class="imagetag"></div>
+             </ul>
+             <div class="row"><button type="button">もっと探す！</button></div>
+          </div>
+          <li class="category-ber"><a href="">新規投稿</a></li>
+          <div class='item-contents'>
+            <ul class='item-lists'>
+              <li class='list'></li>
+              <div><%#= image_tag item.image.variant(resize: '300x300'), class: 'item-image' if message.image.attached? %></div>
+            </ul>
+              <div class="row"><button type="button">もっと探す！</button></div>
+          </div>
+        </ul>
+    </div>
+    <div id="E"> ※3カラムの時追加</div>
+  </body>
+</html>
